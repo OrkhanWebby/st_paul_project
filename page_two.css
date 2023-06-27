@@ -1,0 +1,351 @@
+:root{
+    --back-color: #55b49f;
+    --font-color: white;
+    --width: 50rem;
+    --width-height: 12.5rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================================ */
+/* ==== This area for the body ==== */
+/* ================================ */
+
+body{
+    background-image: url(./Images/Asia-Students-at-university.jpg);
+    background-position: center;
+    background-size: cover;
+    background-color: var(--back-color);
+    background-blend-mode:luminosity;
+    font-family: 'Lobster', cursive;
+    height: 67rem;
+    padding-bottom: 2rem;
+    font-family: 'Bruno Ace SC', cursive;
+}
+
+/* ================================================= */
+/* ==== This area for the header and animations ==== */
+/* ================================================= */
+
+header{
+    width: 100%;
+    height: 4rem;
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--back-color);
+    opacity: 0.9;
+    z-index: 1;
+    top: 0;
+}
+#student-life{
+    font-weight: bold; 
+    font-size: 3.125rem;
+    color: var(--back-color); 
+    /* first made the same color as the BG color */
+    -webkit-text-stroke: 0.3vw white;
+    /* the word becomes different color */
+    text-transform: uppercase;
+    position: relative;
+}
+#student-life::before{
+    content: attr(data-text);
+    /* to insert generated content / it is created next to the phrase */
+    position: absolute;
+    top: 0;
+    left: 0; 
+    /* top and left for overlaping two phrases  */
+    width: 0;
+    height: 100%;
+    color: #19f59a;
+    -webkit-text-stroke: 0vw var(--back-color);
+    border-right: 2px solid #19f59a;
+    /* creating the line that will move */
+    overflow: hidden;
+    animation: animate 6s linear infinite;
+}
+/* increasing the width of the element */
+@keyframes animate {
+    0%, 10% {width: 0;}
+    70%, 100% {width: 100%;}
+}
+
+/* Arrow-right */
+.arrow-right{
+    position: fixed;
+    right: 3.75rem;
+    top: 0.938rem;
+    display: flex;
+    align-items: center;
+    font-size: 0.625rem;
+}
+.arrow-right h1{
+    color: var(--font-color);
+}
+.arrow-right a{
+    text-decoration: none;
+}
+.arrow-right i{
+    color: var(--font-color);
+    margin-left: 0.625rem;
+}
+.fa-solid.fa-circle-arrow-right{
+    animation: arrow-bounce 2s infinite;
+}
+/* Creating the bouncing effect for the right arrow */
+@keyframes arrow-bounce {
+    0%{transform: translateX(0);}
+    50%{transform: translateX(1.25rem);}
+    100%{transform: translateX(0);}
+}
+
+/* Arrow-left */
+.arrow-left{
+    position: fixed;
+    left: 2.5rem;
+    top: 0.938rem;
+    display: flex;
+    align-items: center;
+    font-size: 0.625rem;
+}
+.arrow-left h1{
+    color: var(--font-color);
+}
+.arrow-left a{
+    text-decoration: none;
+}
+.arrow-left i{
+    color: var(--font-color);
+    margin-right: 1.875rem;
+}
+.fa-solid.fa-circle-arrow-left{
+    animation: arrow-bounce 2s infinite;
+}
+/* Creating the bouncing effect for the left arrow */
+@keyframes arrow-bounce {
+    0%{transform: translateX(0);}
+    50%{transform: translateX(1.25rem);}
+    100%{transform: translateX(0);}
+}
+
+/* ============================================== */
+/* ==== This area for the texts and pictures ==== */
+/* ============================================== */
+
+/* Text */
+.text-pictures {
+    display: flex;
+    margin: auto;
+    width: var(--width);
+    justify-content: space-between;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+}
+.text {
+    width: var(--width);
+    margin: auto;
+    margin-right: 2.5rem;
+    background-color: var(--back-color);
+    opacity: 0.9;
+    padding: 1rem;
+    border-radius: 1rem;
+    text-align: justify;
+}
+.text h2, p {
+    color: var(--font-color);
+    font-size: 1.4rem;
+}
+
+/* Images */
+.images {
+    width: var(--width-height);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 44rem;
+}
+/* The first picture */
+.container1{
+    width: var(--width-height);
+    height: var(--width-height);
+    perspective: 600px;
+}
+.container1:hover > .card1{
+    cursor: pointer;
+    transform: rotateY(180deg) rotateZ(180deg);
+}
+.card1{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transition: transform 1500ms;
+    transform-style: preserve-3d;
+}
+.front1, .back1{
+    height: 100%;
+    width: 100%;
+    border-radius: 2rem;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    backface-visibility: hidden;
+}
+.front1{
+    background-image: url(./Images/PE\ students.png);
+    background-position: center;
+    background-size: cover;
+}
+.back1{
+    background-color:#19f59a;
+    transform: rotateY(180deg) rotateZ(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* The second picture */
+.container2{
+    width: var(--width-height);
+    height: var(--width-height);
+    perspective: 600px;
+}
+.container2:hover > .card2{
+    cursor: pointer;
+    transform: rotateY(180deg) rotateZ(180deg);
+}
+.card2{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transition: transform 1500ms;
+    transform-style: preserve-3d;
+}
+.front2, .back2{
+    height: 100%;
+    width: 100%;
+    border-radius: 2rem;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    backface-visibility: hidden;
+}
+.front2{
+    background-image: url(./Images/Students2.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.back2{
+    background-color:#19f59a;
+    transform: rotateY(180deg) rotateZ(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* The third picture */
+.container3{
+    width: var(--width-height);
+    height: var(--width-height);
+    perspective: 600px;
+}
+.container3:hover > .card3{
+    cursor: pointer;
+    transform: rotateY(180deg) rotateZ(180deg);
+}
+.card3{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transition: transform 1500ms;
+    transform-style: preserve-3d;
+}
+.front3, .back3{
+    height: 100%;
+    width: 100%;
+    border-radius: 2rem;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    backface-visibility: hidden;
+}
+.front3{
+    background-image: url(./Images/Students3.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.back3{
+    background-color:#19f59a;
+    transform: rotateY(180deg) rotateZ(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Table */
+table {
+    border-collapse: collapse;
+    width: var(--width);
+    margin: auto;
+}
+tbody {
+    border-radius: 5px;
+}
+td {
+    text-align: center;
+    height: 3.563rem; 
+    padding: 0.625rem 1.25rem;
+}
+tr{
+    transition: all .2s ease-in;
+    cursor: pointer;
+}
+tr:hover{
+    transform: scale(1.02);
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2) ;
+}
+.one {
+    background-color: var(--back-color);
+    color: white;
+}
+.two {
+    background-color: var(--font-color);
+    color: #55b49f;
+}
+
+/* ============================================== */
+/* ==== This area for responsiveness ==== */
+/* ============================================== */
+
+@media screen and (max-width:1200px) {
+    .text-pictures {
+        display: block;
+    }
+    .images {
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+    .container1 {
+        margin-top: 3rem;
+    }
+    .container1, .container2, .container3{
+        width: 100%;
+
+    }
+    .arrow-right > a > h1 {
+        visibility: hidden;
+    }
+    .fa-solid.fa-circle-arrow-right {
+        visibility: visible;
+    }
+    .arrow-left > a > h1 {
+        visibility: hidden;
+    }
+    .fa-solid.fa-solid.fa-circle-arrow-left {
+        visibility: visible;
+    }
+}
+
+   
